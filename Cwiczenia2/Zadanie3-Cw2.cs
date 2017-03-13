@@ -18,6 +18,7 @@ namespace ConsoleApplication2
 
     class Student : Osoba
     {
+        Ocena ocena;
         private int rok;
         private int grupa;
         private int nrIndeksu;
