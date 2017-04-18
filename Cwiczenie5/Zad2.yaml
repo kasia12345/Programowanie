@@ -1,0 +1,88 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: List of the students
+  description: Students
+basePath: /students
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+  - text/xml
+produces:
+  - application/json
+  - text/html
+paths:
+  /:
+    get:
+      responses:
+        200:
+          description: All students
+          schema:
+            title: Students
+            type: array
+            items:
+              $ref: '#/definitions/Student'
+  
+  /students/{id}:
+    get:
+      parameters:
+        - name: id
+          in: path
+          type: string
+          description: ID of the student
+          required: true
+      responses:
+        200:
+          description: Sends the student with student id
+          schema:
+            title: Student
+            type: object
+            items:
+              $ref: '#/definitions/Student'
+          
+  /students{id}:
+    delete:
+      parameters:
+        - name: id
+          in: path
+          type: string
+          description: ID of the student
+          required: true
+      responses:
+        200:
+          description: Delete the student with student id
+    
+    post:
+      parameters:
+        - name: id
+          in: path
+          type: string
+          description: ID of the student
+          required: true
+      responses:
+        200:
+          description: Change information of the student with student id
+    
+
+definitions:
+  Student:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      pesel:
+        type: string
+      address:
+        type: string
+      emal:
+        type: string
+      klasa:
+        type: string
+      
+        
+      
+
